@@ -21,7 +21,7 @@ void convertir(int numero, int digito){
 
     digito_hexadecimal[i] = resultado;
 
-    cout << "El equivalente en hexadecimal es: ";
+    cout << "La conversion en la base ingresada es: ";
 
     for (int j = i; j >= 0; j--)
     {
@@ -63,7 +63,7 @@ int main()
 {
 
     cout<<"*************************************************"<<endl;
-    cout<<"    Convertidor de decimal a Hexadecimal"<<endl;
+    cout<<"              Convertidor de decimal "<<endl;
 
     cout<<"\nIngrese la base que desea mayor a 10: "<<endl;
     cin >> base;
