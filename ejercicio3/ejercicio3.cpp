@@ -1,8 +1,7 @@
 #include <iostream>
 #include "GrafoMatriz.h"
 using namespace::std;
-GrafoMatriz *grafo;
-
+GrafoMatriz *grafo= new GrafoMatriz(10);
 int costo(string nombre1, string nombre2){
     int costo;
     if(grafo->Overtice(grafo->numVertice(nombre1)).getNombre()!=grafo->Overtice(grafo->numVertice(nombre2)).getNombre()) {
@@ -54,7 +53,7 @@ void menu1(){
                 cout <<"Ingrese el nombre del segundo nodo:"<<endl;
                 cin>>nombre2;
                 cout<<"El costo es:"<<endl;
-                cout << costo(nombre1,nombre2);
+                cout << costo(nombre1,nombre2)<<endl;
                 break;
             case 4:
                 cout<<"La matriz de adyacencia es:"<<endl;
@@ -63,7 +62,7 @@ void menu1(){
             case 5://salir
                 break;
         }
-    }while(opcion_seleccionada < 6);
+    }while(opcion_seleccionada < 5);
 }
 
 
