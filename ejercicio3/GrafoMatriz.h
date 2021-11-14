@@ -11,6 +11,7 @@ protected:
     int numVerts; // número de vértices actual
     Vertice * verts; // array de vértices
     int ** matAd; // matriz de adyacencia
+    int costo;
 public:
     typedef int * pint; // para el dimensionamiento de la matriz
     GrafoMatriz(int mx);
@@ -26,6 +27,28 @@ public:
     Vertice Overtice(int va);
     void Pvertice( int va, Vertice vert);
     void Pvalor( char *a, char *b, int v);
+    void imprimir();
+
+    int getMaxVerts() const;
+
+    void setMaxVerts(int maxVerts);
+
+    int getNumVerts() const;
+
+    void setNumVerts(int numVerts);
+
+    Vertice *getVerts() const;
+
+    void setVerts(Vertice *verts);
+
+    int **getMatAd() const;
+
+    void setMatAd(int **matAd);
+
+    int getCosto() const;
+
+    void setCosto(int costo);
+
 };
 
 

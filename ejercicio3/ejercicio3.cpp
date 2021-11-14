@@ -1,7 +1,18 @@
 #include <iostream>
 #include "GrafoMatriz.h"
 using namespace::std;
-//GrafoMatriz *grafo =new GrafoMatriz();
+GrafoMatriz *grafo;
+
+int costo(string nombre1, string nombre2){
+    int costo;
+    if(grafo->Overtice(grafo->numVertice(nombre1)).getNombre()!=grafo->Overtice(grafo->numVertice(nombre2)).getNombre()) {
+        costo = grafo->Overtice(grafo->numVertice(nombre1)).getCosto() + grafo->Overtice(grafo->numVertice(nombre2)).getCosto();
+        return costo;
+    }else{
+        cout<<"El costo es igual"<<endl;
+    }
+    return costo;
+}
 
 int menu_B(){
     int b;
@@ -16,31 +27,38 @@ int menu_B(){
 }
 
 void menu1(){
-    int id=0, id2=0;
+    string nombre1, nombre2;
     int opcion_seleccionada = 0;
+
     do{
         opcion_seleccionada = menu_B();
         switch(opcion_seleccionada)
         {
             case 1: //Ingresar nodos
-                cout<<"Ingrese el ID del equipo ganador"<<endl;
-                cin>>id;
-
+                cout<<"Ingrese nuevo nodo"<<endl;
+                cin>>nombre1;
+                grafo->nuevoVertice(nombre1);
                 break;
             case 2:
-                cout<<"Ingrese el primer ID "<<endl;
-                cin>>id;
-                cout<<"Ingrese el segundo ID "<<endl;
-                cin>>id2;
-
+                cout <<"Crear nuevo arco"<<endl;
+                cout <<"Ingrese el nodo inicial"<<endl;
+                cin >> nombre1;
+                cout <<"Ingrese el nodo final"<<endl;
+                cin >> nombre2;
+                grafo->nuevoArco(nombre1, nombre2);
                 break;
             case 3:
-                cout<<"Ingrese el ID del equipo que simule ser ganador"<<endl;
-                cin>>id;
-
+                cout<<"Costo"<<endl;
+                cout <<"Ingrese el nombre del primer nodo:"<<endl;
+                cin>>nombre1;
+                cout <<"Ingrese el nombre del segundo nodo:"<<endl;
+                cin>>nombre2;
+                cout<<"El costo es:"<<endl;
+                cout << costo(nombre1,nombre2);
                 break;
             case 4:
-
+                cout<<"La matriz de adyacencia es:"<<endl;
+                grafo->imprimir();
                 break;
             case 5://salir
                 break;

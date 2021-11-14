@@ -6,6 +6,7 @@
 
 GrafoMatriz::GrafoMatriz(int mx)
 {
+    costo=1;
     maxVerts = mx;
     verts = new Vertice[mx] ; // vector de vértices
     matAd = new pint[mx]; // vector de punteros
@@ -28,7 +29,7 @@ void GrafoMatriz::nuevoVertice (string nom)
     bool esta = numVertice(nom) >= 0;
     if (!esta)
     {
-        Vertice v = Vertice(nom, numVerts);
+        Vertice v = Vertice(nom, numVerts, costo);
         verts[numVerts++] = v; // se asigna a la lista.
         // No se comprueba que sobrepase el máximo
     }
@@ -95,4 +96,53 @@ void GrafoMatriz::Pvalor( char *a, char *b, int v)
     vb = numVertice(b);
     if (va < 0 || vb < 0) throw "Vértice no existe";
     matAd[va][vb] = v;
+}
+
+int GrafoMatriz::getMaxVerts() const {
+    return maxVerts;
+}
+
+void GrafoMatriz::setMaxVerts(int maxVerts) {
+    GrafoMatriz::maxVerts = maxVerts;
+}
+
+int GrafoMatriz::getNumVerts() const {
+    return numVerts;
+}
+
+void GrafoMatriz::setNumVerts(int numVerts) {
+    GrafoMatriz::numVerts = numVerts;
+}
+
+Vertice *GrafoMatriz::getVerts() const {
+    return verts;
+}
+
+void GrafoMatriz::setVerts(Vertice *verts) {
+    GrafoMatriz::verts = verts;
+}
+
+int **GrafoMatriz::getMatAd() const {
+    return matAd;
+}
+
+void GrafoMatriz::setMatAd(int **matAd) {
+    GrafoMatriz::matAd = matAd;
+}
+
+int GrafoMatriz::getCosto() const {
+    return costo;
+}
+
+void GrafoMatriz::setCosto(int costo) {
+    GrafoMatriz::costo = costo;
+}
+
+void GrafoMatriz::imprimir(){
+    for(int i=0; i< maxVerts; i++){
+        for(int j=0; j< maxVerts; j++){
+            cout<<( matAd[i][j] + "  " );
+        }
+        cout<<endl;
+    }
 }
